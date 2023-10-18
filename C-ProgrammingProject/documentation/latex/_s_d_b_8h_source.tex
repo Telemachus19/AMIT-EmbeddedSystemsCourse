@@ -1,0 +1,27 @@
+\doxysection{SDB.\+h}
+\hypertarget{_s_d_b_8h_source}{}\label{_s_d_b_8h_source}\index{D:/computer-\/science/AMIT-\/Embedded\_systems\_course/C-\/ProgrammingProject/headers/SDB.h@{D:/computer-\/science/AMIT-\/Embedded\_systems\_course/C-\/ProgrammingProject/headers/SDB.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_SDB\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}STD.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ \_SDB\_H\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ IDS\ 3}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_simple_db}{SimpleDb}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ uint32\ Student\_ID;}
+\DoxyCodeLine{00008\ \ \ \ \ uint32\ Student\_year;}
+\DoxyCodeLine{00009\ \ \ \ \ uint32\ Course\_ID[IDS];}
+\DoxyCodeLine{00010\ \ \ \ \ uint32\ Course\_grade[IDS];}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_simple_db}{SimpleDb}}\ *next;}
+\DoxyCodeLine{00012\ \}\ \mbox{\hyperlink{struct_simple_db}{student}};}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{bool}\ SDB\_isFull();}
+\DoxyCodeLine{00014\ uint8\ SDB\_GetUsedSize();}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{bool}\ SDB\_AddEntry();}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ SDB\_DeleteEntry(uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{bool}\ SDB\_ReadEntry(uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ SDB\_GetList(uint8\ *count,\ uint32\ *list);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{bool}\ SDB\_DoesIdExist(uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ SDB\_APP();}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

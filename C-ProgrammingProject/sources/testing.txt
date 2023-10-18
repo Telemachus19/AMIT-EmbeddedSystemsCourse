@@ -1,0 +1,94 @@
+#include <stdlib.h>
+#include "List.h"
+
+typedef struct ListNode
+{
+    student data;
+    struct Node *next;
+} Node;
+
+void push(Node **head_ref, student new_data)
+{
+    Node *new_node = (Node *)malloc(sizeof(Node));
+    Node *last = *head_ref; /* used in step 5*/
+
+    new_node->data = new_data;
+    new_node->next = NULL;
+
+    if (*head_ref == NULL)
+    {
+        *head_ref = new_node;
+        return;
+    }
+
+    while (last->next != NULL)
+        last = last->next;
+
+    last->next = new_node;
+    return;
+}
+
+void pull(Node **head_ref, int key)
+{
+    Node *temp = *head_ref, *prev;
+
+    if (temp != NULL && temp->data.Student_ID == key)
+    {
+        *head_ref = temp->next;
+        free(temp);
+        return;
+    }
+    // Find the key to be deleted
+    while (temp != NULL && temp->data.Student_ID != key)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If the key is not present
+    if (temp == NULL)
+        return;
+
+    // Remove the node
+    prev->next = temp->next;
+
+    free(temp);
+}
+
+int searchNode(Node **head_ref, int key)
+{
+    Node *current = *head_ref;
+
+    while (current != NULL)
+    {
+        if (current->data.Course_ID == key)
+            return 1;
+        current = current->next;
+    }
+    return 0;
+}
+
+void printList(Node *node)
+{
+    while (node != NULL)
+    {
+        printf("Student ID: %d\n", node->data.Student_ID);
+        printf("Student Year: %d\n", node->data.Student_year);
+        for(int i = 0; i < 3; i++){
+            printf("Course %d ID : %d")
+        }
+        node = node->next;
+    }
+}
+
+int getSize(Node *head)
+{
+    int size = 0;
+    Node *current = head;
+    while (current != NULL)
+    {
+        size++;
+        current = current->next;
+    }
+    return size;
+}

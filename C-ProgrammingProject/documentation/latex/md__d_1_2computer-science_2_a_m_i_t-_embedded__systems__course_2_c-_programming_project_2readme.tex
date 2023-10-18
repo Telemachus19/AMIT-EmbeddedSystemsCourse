@@ -1,0 +1,92 @@
+\chapter{AMIT -\/ C Programming Project}
+\hypertarget{md__d_1_2computer-science_2_a_m_i_t-_embedded__systems__course_2_c-_programming_project_2readme}{}\label{md__d_1_2computer-science_2_a_m_i_t-_embedded__systems__course_2_c-_programming_project_2readme}\index{AMIT -\/ C Programming Project@{AMIT -\/ C Programming Project}}
+\label{md__d_1_2computer-science_2_a_m_i_t-_embedded__systems__course_2_c-_programming_project_2readme_autotoc_md0}%
+\Hypertarget{md__d_1_2computer-science_2_a_m_i_t-_embedded__systems__course_2_c-_programming_project_2readme_autotoc_md0}%
+
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} Create {\ttfamily \doxylink{_s_t_d_8h_source}{STD.\+h}} which have the following data types\+:
+\begin{DoxyItemize}
+\item {\ttfamily typedef unsigned char uint8}
+\item {\ttfamily typedef char int8}
+\item {\ttfamily typedef unsigned short uint16}
+\item {\ttfamily typedef short int16}
+\item {\ttfamily typedef unsigned int uint32}
+\item {\ttfamily typedef int in32}
+\item {\ttfamily typedef enum \{false, true\} bool}
+\end{DoxyItemize}
+\item \mbox{[}x\mbox{]} {\ttfamily \doxylink{_s_d_b_8h_source}{SDB.\+h}} to have the function declaration that you use in the project and the following datatype
+\begin{DoxyItemize}
+\item {\ttfamily c typedef struct \doxylink{struct_simple_db}{Simple\+Db}\{ uint32 Student\+\_\+\+ID; uint32 Student\+\_\+year; uint32 Course1\+\_\+\+ID; uint32 Course1\+\_\+grade; uint32 Course2\+\_\+\+ID; uint32 Course2\+\_\+grade; uint32 Course3\+\_\+\+ID; uint32 Course3\+\_\+grade; \} student; }
+\item {\itshape Create The database with maximum 10 students and minimum 3 students}
+\end{DoxyItemize}
+\item \mbox{[}x\mbox{]} {\ttfamily SDC.\+c} which have the following functions
+\begin{DoxyItemize}
+\item {\ttfamily bool SDB\+\_\+is\+Full()}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} check if the database is full or not
+\item {\bfseries{Return\+:}} {\ttfamily true} if database is full, else {\ttfamily false}
+\end{DoxyItemize}
+\item {\ttfamily uint8 SDB\+\_\+\+Get\+Used\+Size()}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} get how many students in your database have been added.
+\item {\bfseries{Return\+:}} return the number of students.
+\end{DoxyItemize}
+\item {\ttfamily bool SDB\+\_\+\+Add\+Entry()}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} When the user chooses to add entry this function asks him for the required data in the database to add one student which is his (id, year, Course1\+\_\+\+ID, Course1\+\_\+grade, Course2\+\_\+\+ID, Course2\+\_\+grade, Course3\+\_\+\+ID, and Course3\+\_\+grade) and then add to your database.
+\item {\bfseries{Return\+:}} return 1 if the data is added successfully return 0 if the data not added to your database which depend on the input of the user whether is the data entered is correct or not and the data is full or not
+\end{DoxyItemize}
+\item {\ttfamily void SDB\+\_\+\+Delete\+Entry (uint32 id)}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} delete the student data with the given id.
+\end{DoxyItemize}
+\item {\ttfamily bool SDB\+\_\+\+Read\+Entry (uint32 id)}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} print the data of the user by searching on his data by the given id
+\item {\bfseries{Return\+:}} return 1 if the data is existed return 0 if this id not your database.
+\end{DoxyItemize}
+\item {\ttfamily void SDB\+\_\+\+Get\+List (uint8 \texorpdfstring{$\ast$}{*} count, uint32 \texorpdfstring{$\ast$}{*} list)}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} it gets the number of ids in the count and the list of all ids in list array that’s you get his base address.
+\end{DoxyItemize}
+\item {\ttfamily bool SDB\+\_\+\+Is\+Id\+Exist (uint32 id)}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} Checks if the given id the is Exist
+\item {\bfseries{Return\+:}} return 1 if the id is existed and return 0 if the id not found.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \mbox{[}x\mbox{]} Cerate {\ttfamily SDBAPP.\+c} which have the following function
+\begin{DoxyItemize}
+\item {\ttfamily void SDB\+\_\+\+APP()}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} it has a super loop it will make your project until the user chose to exit you will ask the user to choose between these options
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item To add entry, enter 1
+\item To get used size in database, enter 2
+\item To read student data, enter 3
+\item To get the list of all student IDs, enter 4
+\item To check is ID is existed, enter 5
+\item To delete student data, enter 6
+\item To check is database is full, enter 7
+\item To exit enter 0
+\end{DoxyEnumerate}
+\item then it will call the {\ttfamily SDB\+\_\+action}
+\begin{DoxyItemize}
+\item {\ttfamily void SDB\+\_\+action (uint8 choice)}
+\begin{DoxyItemize}
+\item {\bfseries{Description\+:}} it well takes the user choice and call the responding function for this choice. You make the right response to give a valid Output for the user
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \mbox{[}x\mbox{]} In your main.\+c
+\begin{DoxyItemize}
+\item Just call {\ttfamily SDB\+\_\+\+APP()} that’s will start your program
+\item {\itshape Notes}
+\begin{DoxyItemize}
+\item You have to follow the modular programming concept that’s you have taken during the c sessions.
+\item You will need to comment every function how to well work depend in you implantation and why you implement it in this way.
+\item You need to make at least 2 min screen recorded video demonstrate all of your work and why you implement the functions this way and showing your program how it works. 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}

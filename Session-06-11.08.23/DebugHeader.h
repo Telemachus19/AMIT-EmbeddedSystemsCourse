@@ -1,0 +1,4 @@
+#ifndef DEBUGHEADER_H_INCLUDED
+#define DEBUGHEADER_H_INCLUDED
+#define IS_DEBUG_MODE
+#endif
